@@ -2,17 +2,16 @@
 
 #include "Document.h"
 
-Document::Document()
+Document::Document() : curr_line{0}
 {
-    vector <string> tmp(0);
-    doc_lines = tmp;
-    curr_line = 0;
+    vector <string> other_doc_line(0);
+    doc_lines = other_doc_line;
 }
 
 // p
 void Document::print_curr_line()
 {
-    if(curr_line <= 0) // if document have empty (have'nt lines)
+    if(curr_line <= 0) 
     {
         cerr << "The Document haven't lines" << endl;
         return;
@@ -26,7 +25,7 @@ void Document::print_curr_line()
 // n
 void Document::print_line_num()
 {
-    if(curr_line <= 0) // if document have empty (have'nt lines)
+    if(curr_line <= 0) 
     {
         cerr << "The Document haven't lines" << endl;
         return;
@@ -40,7 +39,7 @@ void Document::print_line_num()
 // %p
 void Document::print_all_lines()
 {
-    if(curr_line <= 0) // if document have empty (have'nt lines)
+    if(curr_line <= 0) 
     {
         cerr << "The Document haven't lines" << endl;
         return;
@@ -156,14 +155,18 @@ void Document::search_forward_curr_line(string txt)
 // s/old/new
 void Document::replace_old_new(string old_str, string new_str) // Need upgrade
 {
-    if(doc_lines[curr_line].find(old_str) != string::npos)
+    if(this->curr_line <= 0)
     {
-        int ind = doc_lines[curr_line].find(old_str);
-        doc_lines[curr_line].replace(ind , old_str.size() , new_str);
+       cerr << "The old word have'nt exist" << endl;
+       return;
+    }
+    if(doc_lines[curr_line-1].find(old_str) != string::npos)
+    {
+        int ind = doc_lines[curr_line-1].find(old_str);
+        doc_lines[curr_line-1].replace(ind , old_str.size() , new_str);
     }
     else
     {
-      cerr << "The Document haven't lines" << endl;   
+      cerr << "The old word have'nt exist" << endl;
     } 
 }
-
