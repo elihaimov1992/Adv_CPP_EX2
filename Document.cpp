@@ -2,6 +2,7 @@
 
 #include "Document.h"
 
+// C'tor
 Document::Document() : curr_line{0}
 {
     vector <string> other_doc_line(0);
