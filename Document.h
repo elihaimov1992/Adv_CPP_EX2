@@ -1,6 +1,8 @@
 /*Eli Haimov - 308019306*/
 
-//#pragma once
+#ifndef DOCUMENT_H
+#define DOCUMENT_H
+
 #include<iostream>
 #include<string>
 #include<vector>
@@ -29,3 +31,5 @@ void search_forward_curr_line(string txt); // /text - Searches forward after cur
 //The search wraps to the beginning of the buffer and continues down to the current line, if necessary .
 void replace_old_new(string old_str, string new_str); // s/old/new - Replaces old string with new in current line (google: C++ split or token).
 };
+
+#endif
