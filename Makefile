@@ -1,4 +1,4 @@
-// Source makefile: github.com/SamuelBismuth/Editor/blob/master/src/makefile
+// Source Makefile: github.com/SamuelBismuth/Editor/blob/master/src/makefile
 CXX = g++
 CXXFLAGS = -std=c++0x
 
